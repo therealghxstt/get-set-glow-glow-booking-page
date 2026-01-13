@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"> 
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Booking Page</title> 
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Imperial+Script&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="page-wrapper">
+<main class="container">
+    <h1 class="brand-name">GetSetGlow</h1>
+    <p class="subtitle">Book your appointment using the calendar below:</p>
+
+    <div class="calendly-wrapper">
+        <div id="calendly-container" style="min-width:320px;height:700px;"></div>
+    </div>
+
+    <script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>
+
+    <script>
+        function initCalendly() {
+            const container = document.getElementById('calendly-container');
+            const isDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+            
+            // Clear the container to prevent duplicate calendars
+            container.innerHTML = '';
+
+            const settings = {
+                url: 'https://calendly.com/shazninb/30min',
+                parentElement: container,
+                // These specific hex codes remove the "Golden Banner"
+                theme: isDark ? {
+                    backgroundColor: '1a1a1a', // Dark Gray/Black
+                    textColor: 'ffffff',       // White Text
+                    primaryColor: 'd4af37'     // Gold accents (optional)
+                } : {
+                    backgroundColor: 'ffffff', // White
+                    textColor: '000000',       // Black Text
+                    primaryColor: '00a2ff'     // Blue accents
+                }
+            };
+
+            if (window.Calendly) {
+                window.Calendly.initInlineWidget(settings);
+            }
+        }
+
+        // Run when page loads
+        window.onload = () => {
+            setTimeout(initCalendly, 200);
+        };
+
+        // Listen for system theme changes (Auto-switch)
+        window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', initCalendly);
+    </script>
+
+</main>
+</div>
+</body>
+</html>
