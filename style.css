@@ -23,30 +23,17 @@ p {
     color: #555;    
 }
 
-.brand-name {
-    font-family: 'Imperial Script', cursive;
-    font-size: 48px;
-    font-weight: 400;
-    letter-spacing: 4px;
-    background: linear-gradient(45deg, #C9A24D, #FFD700, #B8860B);
-    -webkit-background-clip: text;
-    background-clip: text;
-    -webkit-text-fill-color: transparent;
-    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
+.brand-logo {
+    max-width: 250px;       /* Adjust size for desktop */
+    width: 100%;             /* Scales nicely on mobile */
+    height: auto;           /* Maintains proportions */
+    margin-bottom: 0.5rem;  /* Space below logo */
+    display: block;
+    margin-left: auto;
+    margin-right: auto;     /* Centers logo horizontally */
 }
 
-@media (prefers-color-scheme: dark) {
-    body {
-        background-color: #121212;
-    } 
 
-    .container {
-        background-color: #1e1e1e;
-    }
-    p { 
-        color: #ccc;
-    }
-}
 
 .container {
 max-width: 480px;
@@ -116,4 +103,8 @@ margin-bottom: 2rem;
     margin: 1rem auto;
     padding: 0.5rem;
 }
+}
+
+html {
+color-scheme: light;
 }
